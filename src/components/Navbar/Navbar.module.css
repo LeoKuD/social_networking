@@ -1,0 +1,19 @@
+.nav {
+    grid-area: nav;
+    background-color: #6ff3aa;
+}
+.nav li {
+    list-style: none;
+}
+.nav a {
+    text-decoration: none;
+    color: white;
+
+}
+.nav a:hover {
+    text-decoration: underline;
+    color: red;
+}
+.nav a.active {
+    color: blueviolet; /* Цвет активных ссылок */
+   }
