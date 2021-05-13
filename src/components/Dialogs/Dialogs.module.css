@@ -2,7 +2,12 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
-
 .dialogsItems .active{
     color: blueviolet;
+}
+.messages{
+    padding: 10px;
+}
+.dialogsItems{
+    padding: 10px;
 }
