@@ -3,6 +3,9 @@ import Post from './Posts/Post'
 
 const Myposts = (props) => {
 
+    let postsElement = props.posts.map(
+        p => <Post message={p.post} countslike={p.countslike} />
+    )
 
     return (
         <div className={style.content}>
@@ -17,7 +20,7 @@ const Myposts = (props) => {
                 Remove
             </button></div>
             <div className={style.postItem}>
-                {props.postElem}
+                {postsElement}
             </div>
 
 
