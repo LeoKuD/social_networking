@@ -1,0 +1,23 @@
+.friend img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid gray;
+}
+/* 
+.friend{
+    font-size: 12px;
+    margin: 0 auto;
+    width: 33.3%;
+    float: left;
+    text-align: center;
+}
+.friend :last-child {
+    margin-right: 0px;
+} */
+
+.friend{
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+}

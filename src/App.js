@@ -8,31 +8,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import Friends from './components/Friends/Friends';
+import state from './Redux/State/State'
 
-
-
-
-const App = () => {
-
-    let posts = [
-        { id: 1, post: 'Hi, how are you?', countslike: 15 },
-        { id: 1, post: 'I am OK', countslike: 30 }
-    ]
-
-    let dialogs = [
-        { id: 1, name: 'Dima' },
-        { id: 2, name: 'Andrey' },
-        { id: 3, name: 'Dima' },
-        { id: 4, name: 'Oly' },
-        { id: 5, name: 'Pasha' }
-    ]
-
-    let messages = [
-        { id: 1, message: 'Hi how are you?' },
-        { id: 2, message: 'Do ypo speak english?' },
-        { id: 3, message: 'Yo?' },
-        { id: 4, message: 'I learn react?' }
-    ]
+const App = (props) => {
 
     return (
         <BrowserRouter>
@@ -40,11 +19,12 @@ const App = () => {
                 <Header />
                 <Nav />
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' render={() => <Profile post={posts} />} />
-                    <Route path='/dialogs' render={() => <Dialogs dialog={dialogs} message={messages} />} />
+                    <Route path='/profile' render={() => <Profile state={props.state.progilePage} />} />
+                    <Route path='/dialogs' render={() => <Dialogs state={props.state.messagesPage} />} />
                     <Route path='/news' render={() => <News />} />
                     <Route path='/music' render={() => <Music />} />
                     <Route path='/settings' render={() => <Settings />} />
+                    <Route path='/friends' render={() => <Friends state={state.friendsPage} />} />
                 </div>
             </div>
         </BrowserRouter>
