@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Friends from '../Friends/Friends';
 import style from './Navbar.module.css'
-import state from './../../Redux/State/State'
 
 const Navbar = (props) => {
     return (
@@ -16,7 +15,7 @@ const Navbar = (props) => {
                     <li><NavLink to='/Friends' activeClassName={style.active}> Friends </NavLink> </li>
                 </ul>
             </nav >
-            <Friends state={state.friendsPage} />
+            <Friends state={props.state} />
         </div>
 
     )

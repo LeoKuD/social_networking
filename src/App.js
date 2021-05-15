@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
-import Nav from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -10,6 +9,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import Friends from './components/Friends/Friends';
 import state from './Redux/State/State'
+import Navbar from './components/Navbar/Navbar';
 
 const App = (props) => {
 
@@ -17,7 +17,7 @@ const App = (props) => {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Nav />
+                <Navbar state={state.friendsPage} />
                 <div className='app-wrapper-content'>
                     <Route path='/profile' render={() => <Profile state={props.state.progilePage} />} />
                     <Route path='/dialogs' render={() => <Dialogs state={props.state.messagesPage} />} />
