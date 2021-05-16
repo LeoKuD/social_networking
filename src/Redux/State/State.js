@@ -1,3 +1,5 @@
+import { renderEntireTree } from "../../Render"
+
 let state = {
     progilePage: {
         posts: [
@@ -28,6 +30,16 @@ let state = {
             { id: 3, name: 'Dima' }
         ]
     }
+}
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 5,
+        post: postMessage,
+        countslike: 0
+    }
+    state.progilePage.posts.push(newPost)
+    renderEntireTree(state)
 }
 
 export default state

@@ -1,5 +1,6 @@
 import style from './Myposts.module.css'
 import Post from './Posts/Post'
+import React from 'react';
 
 const Myposts = (props) => {
 
@@ -7,14 +8,22 @@ const Myposts = (props) => {
         p => <Post post={p.post} countslike={p.countslike} />
     )
 
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value
+        props.newPost(text)
+        newPostElement.current.value = ''
+    }
+
     return (
         <div className={style.content}>
             <div>My post</div>
             <div>
-                <textarea></textarea>
+                <textarea ref={newPostElement}></textarea>
             </div>
             <div>
-                <button>Add post</button>
+                <button onClick={addPost}>Add post</button>
             </div>
             <div><button>
                 Remove

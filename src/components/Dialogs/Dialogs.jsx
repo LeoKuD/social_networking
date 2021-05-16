@@ -1,6 +1,7 @@
 import DialogsItems from './Dialogitems/Dialogitems'
 import style from './Dialogs.module.css'
 import MessagesItems from './MessagesItems/Messagesitems'
+import NewMessages from './Newmessages/Newmessages'
 
 const Dialogs = (props) => {
 
@@ -18,6 +19,7 @@ const Dialogs = (props) => {
             </div>
             <div className={style.messages}>
                 {messageElement}
+                <NewMessages />
             </div>
         </div>
     )
