@@ -38,20 +38,6 @@ let store = {
     _callSubscribers() {
         console.log('sss');
     },
-    addPost() {
-        let newPost = {
-            id: 5,
-            post: this._state.progilePage.textPost,
-            countslike: 0
-        }
-        this._state.progilePage.posts.push(newPost)
-        this.updatePostText('')
-        this._callSubscribers(this._state)
-    },
-    updatePostText(newText) {
-        this._state.progilePage.textPost = newText;
-        this._callSubscribers(this._state)
-    },
     addMessage() {
         let newMessage = {
             id: 5,
@@ -67,6 +53,32 @@ let store = {
     },
     subscriber(observer) {
         this._callSubscribers = observer
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                post: this._state.progilePage.textPost,
+                countslike: 0
+            }
+            this._state.progilePage.posts.push(newPost)
+            this._state.progilePage.textPost = ''
+            this._callSubscribers(this._state)
+        } else if (action.type === 'UPDATA-POST-TEXT') {
+            this._state.progilePage.textPost = action.newText;
+            this._callSubscribers(this._state)
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 5,
+                message: this._state.messagesPage.newTextMessage
+            }
+            this._state.messagesPage.messages.push(newMessage)
+            this._state.messagesPage.newTextMessage = ''
+            this._callSubscribers(this._state)
+        } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+            this._state.messagesPage.newTextMessage = action.newMessage
+            this._callSubscribers(this._state)
+        }
     }
 }
 

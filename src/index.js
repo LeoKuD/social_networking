@@ -9,12 +9,9 @@ export let renderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <App state={store.getState()}
-                newPost={store.addPost.bind(store)}
+                dispatch={store.dispatch.bind(store)}
                 newTextPost={state.progilePage.textPost}
-                updatePostText={store.updatePostText.bind(store)}
                 messagesPage={state.messagesPage}
-                addMessage={store.addMessage.bind(store)}
-                updateMessage={store.updateNewMessages.bind(store)}
                 friends={state.friendsPage} />
         </React.StrictMode>,
         document.getElementById('root')
