@@ -8,9 +8,7 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import Friends from './components/Friends/Friends';
-import state from './Redux/State/State'
 import Navbar from './components/Navbar/Navbar';
-import { addPost } from './Redux/State/State';
 
 const App = (props) => {
 
@@ -18,10 +16,10 @@ const App = (props) => {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar state={state.friendsPage} />
+                <Navbar state={props.state.friendsPage} />
                 <div className='app-wrapper-content'>
                     <Route path='/profile' render={() => <Profile progilePage={props.state.progilePage}
-                        newPost={addPost}
+                        newPost={props.newPost}
                         updatePostText={props.updatePostText} />} />
                     <Route path='/dialogs' render={() => <Dialogs messagesPage={props.messagesPage}
                         addMessage={props.addMessage}
@@ -29,7 +27,7 @@ const App = (props) => {
                     <Route path='/news' render={() => <News />} />
                     <Route path='/music' render={() => <Music />} />
                     <Route path='/settings' render={() => <Settings />} />
-                    <Route path='/friends' render={() => <Friends state={state.friendsPage} />} />
+                    <Route path='/friends' render={() => <Friends state={props.friends} />} />
                 </div>
             </div>
         </BrowserRouter>
@@ -38,3 +36,4 @@ const App = (props) => {
 }
 
 export default App;
+
