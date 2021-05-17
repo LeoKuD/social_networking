@@ -1,4 +1,6 @@
-import { renderEntireTree } from "../../Render"
+let renderEntireTree = () => {
+
+}
 
 let state = {
 
@@ -68,4 +70,7 @@ export let updateNewMessages = (newMessage) => {
     renderEntireTree(state)
 }
 
+export const subscriber = (observer) => {
+    renderEntireTree = observer
+}
 export default state

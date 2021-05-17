@@ -10,7 +10,7 @@ import Settings from './components/Settings/Settings';
 import Friends from './components/Friends/Friends';
 import state from './Redux/State/State'
 import Navbar from './components/Navbar/Navbar';
-import { addPost } from './Redux/State/State'
+import { addPost } from './Redux/State/State';
 
 const App = (props) => {
 
