@@ -20,8 +20,12 @@ const App = (props) => {
                 <Header />
                 <Navbar state={state.friendsPage} />
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' render={() => <Profile state={props.state.progilePage} newPost={addPost} />} />
-                    <Route path='/dialogs' render={() => <Dialogs state={props.state.messagesPage} />} />
+                    <Route path='/profile' render={() => <Profile progilePage={props.state.progilePage}
+                        newPost={addPost}
+                        updatePostText={props.updatePostText} />} />
+                    <Route path='/dialogs' render={() => <Dialogs messagesPage={props.messagesPage}
+                        addMessage={props.addMessage}
+                        updateMessage={props.updateMessage} />} />
                     <Route path='/news' render={() => <News />} />
                     <Route path='/music' render={() => <Music />} />
                     <Route path='/settings' render={() => <Settings />} />

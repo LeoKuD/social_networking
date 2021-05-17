@@ -5,7 +5,7 @@ const Friend = (props) => {
     return (
         <div className={style.friend}>
             <div >
-                <a href='#'>
+                <a alt='111' href=''>
                     <img src='./img/logo.png'></img>
                     <div>{props.name}</div>
                 </a>

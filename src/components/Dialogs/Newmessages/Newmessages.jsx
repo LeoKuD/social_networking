@@ -5,14 +5,18 @@ const NewMessages = (props) => {
     let newMessageElement = React.createRef()
 
     let addMessage = () => {
+        props.addMessage()
+    }
+
+    let updateTextMessage = () => {
         let text = newMessageElement.current.value
-        alert(text)
+        props.updateMessage(text)
     }
 
     return (
         <div>
             <div
-            ><textarea ref={newMessageElement} cols="30" rows="10"></textarea>
+            ><textarea onChange={updateTextMessage} value={props.messagesPage.newTextMessage} ref={newMessageElement} cols="30" rows="10"></textarea>
             </div>
 
             <div>
