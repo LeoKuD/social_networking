@@ -1,3 +1,6 @@
+import dialogReducer from "./Dialog-Page-Reducer";
+import profileReducer from "./Profile-Page-Reducer";
+
 let store = {
     _state: {
         progilePage: {
@@ -38,72 +41,13 @@ let store = {
     _callSubscribers() {
         console.log('sss');
     },
-    addMessage() {
-        let newMessage = {
-            id: 5,
-            message: this._state.messagesPage.newTextMessage
-        }
-        this._state.messagesPage.messages.push(newMessage)
-        this.updateNewMessages('')
-        this._callSubscribers(this._state)
-    },
-    updateNewMessages(newMessage) {
-        this._state.messagesPage.newTextMessage = newMessage
-        this._callSubscribers(this._state)
-    },
     subscriber(observer) {
         this._callSubscribers = observer
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                post: this._state.progilePage.textPost,
-                countslike: 0
-            }
-            this._state.progilePage.posts.push(newPost)
-            this._state.progilePage.textPost = ''
-            this._callSubscribers(this._state)
-        } else if (action.type === UPDATA_POST_TEXT) {
-            this._state.progilePage.textPost = action.newText;
-            this._callSubscribers(this._state)
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 5,
-                message: this._state.messagesPage.newTextMessage
-            }
-            this._state.messagesPage.messages.push(newMessage)
-            this._state.messagesPage.newTextMessage = ''
-            this._callSubscribers(this._state)
-        } else if (action.type === UPDATE_NEW_MESSAGE) {
-            this._state.messagesPage.newTextMessage = action.newMessage
-            this._callSubscribers(this._state)
-        }
-    }
-}
-const ADD_POST = 'ADD-POST'
-const UPDATA_POST_TEXT = 'UPDATA-POST-TEXT'
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE'
-export const addPostActionCreator = () => ({ type: ADD_POST })
-
-export const updatePostActionCreator = (text) => {
-    return {
-        type: UPDATA_POST_TEXT,
-        newText: text
-    }
-}
-
-export const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-}
-
-export const updateTextMessageActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE,
-        newMessage: text
+        this._state.progilePage = profileReducer(this._state.progilePage, action)
+        this._state.messagesPage = dialogReducer(this._state.messagesPage, action)
+        this._callSubscribers(this._state)
     }
 }
 

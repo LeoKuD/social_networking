@@ -1,5 +1,5 @@
 import React from 'react';
-import { addMessageActionCreator, updateTextMessageActionCreator } from '../../../Redux/State/State'
+import { addMessageActionCreator, updateTextMessageActionCreator } from '../../../Redux/State/Dialog-Page-Reducer'
 
 const NewMessages = (props) => {
 
