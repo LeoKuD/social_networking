@@ -1,4 +1,5 @@
 import dialogReducer from "./Dialog-Page-Reducer";
+import friendsReducer from "./Friends-Page-Reduser";
 import profileReducer from "./Profile-Page-Reducer";
 
 let store = {
@@ -39,7 +40,7 @@ let store = {
         return this._state
     },
     _callSubscribers() {
-        console.log('sss');
+
     },
     subscriber(observer) {
         this._callSubscribers = observer
@@ -47,9 +48,9 @@ let store = {
     dispatch(action) {
         this._state.progilePage = profileReducer(this._state.progilePage, action)
         this._state.messagesPage = dialogReducer(this._state.messagesPage, action)
+        this._state.friendsPage = friendsReducer(this._state.friendsPage)
         this._callSubscribers(this._state)
     }
 }
 
 export default store
-window.store = store

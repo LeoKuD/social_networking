@@ -3,12 +3,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import store from './Redux/State/State';
+import store from './Redux/State/redux-store';
 
 export let renderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.getState()}
+            <App state={state}
                 dispatch={store.dispatch.bind(store)}
                 newTextPost={state.progilePage.textPost}
                 messagesPage={state.messagesPage}
@@ -20,7 +20,7 @@ export let renderEntireTree = (state) => {
 
 renderEntireTree(store.getState())
 
-store.subscriber(renderEntireTree)
+store.subscribe(() => renderEntireTree(store.getState()))
 
 
 // If you want to start measuring performance in your app, pass a function
