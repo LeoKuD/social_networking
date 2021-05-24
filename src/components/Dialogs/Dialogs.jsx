@@ -1,26 +1,46 @@
 import DialogsItems from './Dialogitems/Dialogitems'
 import style from './Dialogs.module.css'
 import MessagesItems from './MessagesItems/Messagesitems'
-import NewMessages from './Newmessages/Newmessages'
+import React from 'react';
 
 const Dialogs = (props) => {
 
-    let dialogElements = props.messagesPage.dialogs.map(
+    let dialogElements = props.dialogsPage.dialogs.map(
         d => <DialogsItems name={d.name} id={d.id} />
     )
 
-    let messageElement = props.messagesPage.messages.map(
+    let messageElement = props.dialogsPage.messages.map(
         m => <MessagesItems messages={m.message} />
     )
+
+    let newMessageElement = React.createRef()
+
+    let addMessage = () => {
+        props.addMessage()
+    }
+
+    let updateTextMessage = () => {
+        let text = newMessageElement.current.value
+        props.updateTextMessage(text)
+    }
+
     return (
         <div className={style.dialogs}>
             <div className={style.dialogsItems}>
                 {dialogElements}
             </div>
+
             <div className={style.messages}>
-                {messageElement}
-                <NewMessages messagesPage={props.messagesPage}
-                    dispatch={props.dispatch} />
+                {messageElement}<div>
+                    <div>
+                        <textarea onChange={updateTextMessage} value={props.NewMessagesText} ref={newMessageElement} cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div>
+                        <button onClick={addMessage}>add message</button>
+                    </div>
+
+                </div>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
@@ -18,10 +18,8 @@ const App = (props) => {
                 <Header />
                 <Navbar state={props.state.friendsPage} />
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' render={() => <Profile progilePage={props.state.progilePage}
-                        dispatch={props.dispatch} />} />
-                    <Route path='/dialogs' render={() => <Dialogs messagesPage={props.messagesPage}
-                        dispatch={props.dispatch} />} />
+                    <Route path='/profile' render={() => <Profile store={props.store} />} />
+                    <Route path='/dialogs' render={() => <DialogsContainer store={props.store} />} />
                     <Route path='/news' render={() => <News />} />
                     <Route path='/music' render={() => <Music />} />
                     <Route path='/settings' render={() => <Settings />} />

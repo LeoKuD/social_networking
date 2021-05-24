@@ -1,4 +1,4 @@
-import Myposts from './Myposts/Myposts'
+import MypostsConteiner from './Myposts/MypostsConteiner';
 import ProfileInfo from './Profileinfo/ProfileInfo';
 
 const Profile = (props) => {
@@ -7,8 +7,7 @@ const Profile = (props) => {
     return (
         <div>
             <ProfileInfo />
-            <Myposts progilePage={props.progilePage}
-                dispatch={props.dispatch} />
+            <MypostsConteiner store={props.store} />
         </div>
 
 
