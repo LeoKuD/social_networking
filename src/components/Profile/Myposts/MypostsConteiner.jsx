@@ -1,20 +1,29 @@
 import React from 'react';
 import Myposts from './Myposts';
 import { addPostActionCreator, updatePostActionCreator } from '../../../Redux/State/Profile-Page-Reducer'
+import StoreContext from '../../../Redux/StoreContext';
 
-const MypostsConteiner = (props) => {
-    let state = props.store.getState()
+const MypostsConteiner = () => {
 
-    let addPost = () => {
-        props.store.dispatch(addPostActionCreator())
-    }
-
-    let updatePostText = (text) => {
-        props.store.dispatch(updatePostActionCreator(text))
-    }
 
     return (
-        <Myposts updatePost={updatePostText} addPost={addPost} progilePage={state.progilePage} />
+        <StoreContext.Consumer >
+            {
+                (store) => {
+                    let state = store.getState()
+
+                    let addPost = () => {
+                        store.dispatch(addPostActionCreator())
+                    }
+
+                    let updatePostText = (text) => {
+                        store.dispatch(updatePostActionCreator(text))
+                    }
+                    return <Myposts updatePost={updatePostText} addPost={addPost} progilePage={state.progilePage} />
+                }
+            }
+
+        </StoreContext.Consumer>
     )
 }
 

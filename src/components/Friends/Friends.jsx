@@ -2,7 +2,9 @@ import Friend from './Friend/Friend'
 
 const Friends = (props) => {
 
-    let friendElement = props.state.friends.map(
+    let state = props.state.friendsPage.friends
+
+    let friendElement = state.map(
         f => <Friend name={f.name} />
     )
     return (

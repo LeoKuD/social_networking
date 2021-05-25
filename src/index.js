@@ -4,16 +4,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './Redux/State/redux-store';
+import StoreContext from './Redux/StoreContext';
 
 export let renderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state}
-                store={store}
-                dispatch={store.dispatch.bind(store)}
-                newTextPost={state.progilePage.textPost}
-                messagesPage={state.messagesPage}
-                friends={state.friendsPage} />
+            <StoreContext.Provider value={store}>
+                <App state={state} />
+            </StoreContext.Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );
