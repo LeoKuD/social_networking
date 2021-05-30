@@ -16,14 +16,14 @@ const App = (props) => {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar state={props.state} />
+                <Navbar />
                 <div className='app-wrapper-content'>
                     <Route path='/profile' render={() => <Profile />} />
                     <Route path='/dialogs' render={() => <DialogsContainer />} />
                     <Route path='/news' render={() => <News />} />
                     <Route path='/music' render={() => <Music />} />
                     <Route path='/settings' render={() => <Settings />} />
-                    <Route path='/friends' render={() => <Friends state={props.state} />} />
+                    {/* <Route path='/friends' render={() => <Friends />} /> */}
                 </div>
             </div>
         </BrowserRouter>
