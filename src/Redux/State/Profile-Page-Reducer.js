@@ -4,8 +4,8 @@ const UPDATA_POST_TEXT = 'UPDATA-POST-TEXT'
 let initialState = {
     posts: [
         { id: 1, post: 'Hi, how are you?', countslike: 15 },
-        { id: 1, post: 'Hi, how are you?', countslike: 15 },
-        { id: 1, post: 'I am OK', countslike: 30 }
+        { id: 2, post: 'Hi, how are you?', countslike: 15 },
+        { id: 3, post: 'I am OK', countslike: 30 }
     ],
     textPost: '111111'
 }
@@ -13,23 +13,17 @@ let initialState = {
 let profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_POST: {
-            let newPost = {
-                id: 5,
-                post: state.textPost,
-                countslike: 0
+        case ADD_POST:
+            return {
+                ...state,
+                posts: [...state.posts, { id: 4, post: state.textPost, countslike: 0 }],
+                textPost: ''
             }
-            let copyState = { ...state }
-            copyState.posts = [...state.posts]
-            copyState.posts.push(newPost)
-            copyState.textPost = ''
-            return copyState
-        }
-        case UPDATA_POST_TEXT: {
-            let copyState = { ...state }
-            copyState.textPost = action.newText;
-            return copyState
-        }
+        case UPDATA_POST_TEXT:
+            return {
+                ...state,
+                textPost: action.newText
+            }
         default: return state
     }
 

@@ -5,7 +5,7 @@ import React from 'react';
 const Myposts = (props) => {
 
     let postsElement = props.progilePage.posts.map(
-        p => <Post post={p.post} countslike={p.countslike} />
+        p => <Post post={p.post} countslike={p.countslike} key={p.id} />
     )
 
     let newPostElement = React.createRef();
