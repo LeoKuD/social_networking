@@ -6,7 +6,7 @@ const Header = (props) => {
     return (
         <header className={style.header}>
             <img src={logo} alt="" />
-            <div className={style.login}> {props.isAuth ? props.login : <NavLink to={'/login'}>login</NavLink>}  </div>
+            <div className={style.login}> {props.isAuth ? props.login : <NavLink to='/login'>login</NavLink>} </div>
         </header>
     )
 }

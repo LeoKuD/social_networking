@@ -29,4 +29,5 @@ export const setUserAuthData = (id, login, email) => {
         data: { id, login, email }
     }
 }
+
 export default authReducer
