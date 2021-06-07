@@ -5,7 +5,7 @@ import profileReducer from "./Profile-Page-Reducer";
 import usersReducer from "./Users-Page-Reducer";
 
 let reducers = combineReducers({
-    progilePage: profileReducer,
+    profilePage: profileReducer,
     messagesPage: dialogReducer,
     friendsPage: friendsReducer,
     usersPage: usersReducer

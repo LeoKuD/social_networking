@@ -4,7 +4,7 @@ import profileReducer from "./Profile-Page-Reducer";
 
 let store = {
     _state: {
-        progilePage: {
+        profilePage: {
             posts: [
                 { id: 1, post: 'Hi, how are you?', countslike: 15 },
                 { id: 1, post: 'Hi, how are you?', countslike: 15 },
@@ -46,7 +46,7 @@ let store = {
         this._callSubscribers = observer
     },
     dispatch(action) {
-        this._state.progilePage = profileReducer(this._state.progilePage, action)
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.messagesPage = dialogReducer(this._state.messagesPage, action)
         this._state.friendsPage = friendsReducer(this._state.friendsPage)
         this._callSubscribers(this._state)

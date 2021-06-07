@@ -52,10 +52,10 @@ let usersReducer = (state = initialState, action) => {
     }
 }
 
-export const followAC = (userId) => ({ type: FOLLOW, userId })
-export const unFollowAC = (userId) => ({ type: UNFOLLOW, userId })
-export const setUsersAC = (users) => ({ type: SET_USERS, users })
-export const setCurrentPageAC = (page) => ({ type: SET_CURRENT_PAGE, currentPage: page })
-export const setTotalUsersCountAC = (totalCount) => ({ type: SET_TOTAL_USER_COUNT, totalCount })
-export const toggleIsFeatchingAC = (isFeatching) => ({ type: TOGGLE_IS_FETCHING, isFeatching })
+export const follow = (userId) => ({ type: FOLLOW, userId })
+export const unFollow = (userId) => ({ type: UNFOLLOW, userId })
+export const setUsers = (users) => ({ type: SET_USERS, users })
+export const setCurrentPage = (page) => ({ type: SET_CURRENT_PAGE, currentPage: page })
+export const setTotalUsersCount = (totalCount) => ({ type: SET_TOTAL_USER_COUNT, totalCount })
+export const toggleIsFeatching = (isFeatching) => ({ type: TOGGLE_IS_FETCHING, isFeatching })
 export default usersReducer

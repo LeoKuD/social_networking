@@ -4,7 +4,7 @@ import React from 'react';
 
 const Myposts = (props) => {
 
-    let postsElement = props.progilePage.posts.map(
+    let postsElement = props.profilePage.posts.map(
         p => <Post post={p.post} countslike={p.countslike} key={p.id} />
     )
 
@@ -23,7 +23,7 @@ const Myposts = (props) => {
         <div className={style.content}>
             <div>My post</div>
             <div>
-                <textarea ref={newPostElement} onChange={updatePostText} value={props.progilePage.textPost}></textarea>
+                <textarea ref={newPostElement} onChange={updatePostText} value={props.profilePage.textPost}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>
