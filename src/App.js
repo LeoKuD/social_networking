@@ -9,6 +9,7 @@ import FriendsContainer from './components/Friends/FriendsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileComponent from './components/Profile/ProfileContainer';
 import HeaderComponent from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 const App = (props) => {
 
@@ -25,6 +26,7 @@ const App = (props) => {
                     <Route path='/settings' render={() => <Settings />} />
                     <Route path='/friends' render={() => <FriendsContainer />} />
                     <Route path='/users' render={() => <UsersContainer />} />
+                    <Route path='/login' render={() => <Login />} />
                 </div>
             </div>
         </BrowserRouter>
