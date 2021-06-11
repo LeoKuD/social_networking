@@ -1,5 +1,6 @@
 import Preloader from '../../common/Preloader/Preloader';
 import style from './ProfileInfo.module.css'
+import ProfileStatus from './ProfileStatus'
 
 const ProfileInfo = (props) => {
 
@@ -16,6 +17,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={style.content}>
             <div> <img src={props.profile.photos.large} alt="" /> </div>
+            <ProfileStatus status='мой статус' />
             <div>{props.profile.fullName}</div>
             <div>{props.profile.aboutMe}</div>
             <div>{contacts.map(c => {
