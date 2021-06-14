@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={style.content}>
             <div> <img src={props.profile.photos.large} alt="" /> </div>
-            <ProfileStatus status='мой статус' />
+            <ProfileStatus status={props.status} updateStatusProfile={props.updateStatusProfile} />
             <div>{props.profile.fullName}</div>
             <div>{props.profile.aboutMe}</div>
             <div>{contacts.map(c => {
