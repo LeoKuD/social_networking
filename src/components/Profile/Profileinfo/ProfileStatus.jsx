@@ -24,6 +24,13 @@ class ProfileInfo extends React.Component {
             status: e.currentTarget.value
         })
     }
+    componentDidUpdate(PrevProps, PrevState) {
+        if (PrevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
 
     render() {
         return (
@@ -33,7 +40,7 @@ class ProfileInfo extends React.Component {
                         <input onChange={this.onChangeStatus} onBlur={this.statusEditDeactivate} autoFocus={true} value={this.state.status} type="text" />
                     </div> :
                     < div >
-                        <span onDoubleClick={this.statusEditActivate} >{this.props.status}</span>
+                        <span onDoubleClick={this.statusEditActivate} >{this.state.status || '----'}</span>
                     </div >
                 }
 
