@@ -3,6 +3,7 @@ import style from './Dialogs.module.css'
 import MessagesItems from './MessagesItems/Messagesitems'
 import React from 'react';
 import { Redirect } from 'react-router';
+import { DialogsForm } from './DialogsForm';
 
 const Dialogs = (props) => {
 
@@ -16,13 +17,8 @@ const Dialogs = (props) => {
 
     let newMessageElement = React.createRef()
 
-    let addMessage = () => {
-        props.addMessage()
-    }
-
-    let updateTextMessage = () => {
-        let text = newMessageElement.current.value
-        props.updateTextMessage(text)
+    let addMessage = (data) => {
+        props.addMessage(data)
     }
     if (!props.isAuth) {
         return <Redirect to='/login' />
@@ -35,17 +31,12 @@ const Dialogs = (props) => {
             </div>
 
             <div className={style.messages}>
-                {messageElement}<div>
-                    <div>
-                        <textarea onChange={updateTextMessage} value={props.NewMessagesText} ref={newMessageElement} cols="30" rows="10"></textarea>
-                    </div>
-
-                    <div>
-                        <button onClick={addMessage}>add message</button>
-                    </div>
-
+                {messageElement}
+                <div>
+                    <DialogsForm addMessage={props.addMessage} />
                 </div>
             </div>
+
         </div>
     )
 }
