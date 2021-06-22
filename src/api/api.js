@@ -20,7 +20,17 @@ export const authAPI = {
         return instance.get(`auth/me`).then(response => {
             return response.data
         })
-    }
+    },
+    login(email, password, isRemember) {
+        return instance.post(`auth/login`, { email, password, isRemember }).then(response => {
+            return response.data
+        })
+    },
+    logout() {
+        return instance.delete(`auth/login`).then(response => {
+            return response.data
+        })
+    },
 }
 
 export const followAPI = {
