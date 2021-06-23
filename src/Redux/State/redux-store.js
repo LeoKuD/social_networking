@@ -5,13 +5,15 @@ import friendsReducer from "./Friends-Page-Reduser";
 import profileReducer from "./Profile-Page-Reducer";
 import usersReducer from "./Users-Page-Reducer";
 import thunkMiddleware from 'redux-thunk';
+import appReducer from "./app-Reducer";
 
 let reducers = combineReducers({
     profilePage: profileReducer,
     messagesPage: dialogReducer,
     friendsPage: friendsReducer,
     usersPage: usersReducer,
-    auth: authReducer
+    auth: authReducer,
+    app: appReducer
 
 })
 

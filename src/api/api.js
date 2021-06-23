@@ -23,6 +23,7 @@ export const authAPI = {
     },
     login(email, password, isRemember) {
         return instance.post(`auth/login`, { email, password, isRemember }).then(response => {
+
             return response.data
         })
     },
@@ -32,6 +33,16 @@ export const authAPI = {
         })
     },
 }
+
+
+// export const security = {
+//     getCaptcha() {
+//         return instance.get('security/get-captcha-url').then(response => {
+//             debugger
+//             return response.data
+//         })
+//     }
+// }
 
 export const followAPI = {
     getFollow(id) {

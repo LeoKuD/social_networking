@@ -13,12 +13,15 @@ const Login = (props) => {
 
     return <div>
         <h1>Login</h1>
-        <LoginForm login={props.login} />
+        <LoginForm error={props.error} login={props.login} />
     </div>
 }
 
 const mapStateToProps = (state) => {
-    return { isAuth: state.auth.isAuth }
+    return {
+        isAuth: state.auth.isAuth,
+        error: state.auth.loginError
+    }
 }
 
 export default connect(mapStateToProps, { login })(Login)

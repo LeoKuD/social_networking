@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm, Controller } from "react-hook-form"
 import { Input } from '../elementsUI/TextField'
 import InputLabel from '@material-ui/core/InputLabel'
+import { Alert, AlertTitle } from '@material-ui/lab';
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Checkbox from "@material-ui/core/Checkbox"
 
@@ -16,7 +17,7 @@ export const LoginForm = (props) => {
         mode: 'onBlur'
     })
     const onSubmit = (data) => {
-        console.log(data)
+
         props.login(data.email, data.password, data.isRemember)
     }
 
@@ -48,7 +49,13 @@ export const LoginForm = (props) => {
                 }
                 label="Remember"
             />
+            {props.error && <Alert severity="error">
+                <AlertTitle>Error</AlertTitle>
+                {props.error}
+            </Alert>}
+
             <input type="submit" />
         </form>
+
     )
 }
