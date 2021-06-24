@@ -33,10 +33,10 @@ let profileReducer = (state = initialState, action) => {
 }
 export const addPostActionCreator = (data) => ({ type: ADD_POST, data })
 export const setProfile = (profile) => ({ type: SET_PROFILE, profile })
-
 export const getStatus = (status) => ({ type: SET_STATUS, status })
 
 export default profileReducer
+
 
 export const getProfile = (UserId) => {
     return (dispatch) => {

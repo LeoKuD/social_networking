@@ -23,7 +23,6 @@ class ProfileComponent extends React.Component {
     }
 
     render() {
-
         return (
             <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatusProfile={this.props.updateStatusProfile} />
         )
