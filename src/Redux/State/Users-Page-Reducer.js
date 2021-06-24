@@ -72,7 +72,7 @@ export const toggleIsFeatching = (isFeatching) => ({ type: TOGGLE_IS_FETCHING, i
 export const toggleIsFollowingProgress = (isFeatching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFeatching, userId })
 export default usersReducer
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFeatching(true))
 
@@ -80,6 +80,7 @@ export const getUsers = (currentPage, pageSize) => {
             dispatch(toggleIsFeatching(false))
             dispatch(setUsers(data.items))
             dispatch(setTotalUsersCount(data.totalCount))
+            dispatch(setCurrentPage(currentPage))
         })
     }
 }
