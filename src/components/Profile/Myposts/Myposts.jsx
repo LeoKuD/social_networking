@@ -3,7 +3,15 @@ import Post from './Posts/Post'
 import React from 'react';
 import { MyPostsForm } from './MyPostsForm';
 
+
+
+const areEqual = (prevProps, nextProps) => {
+    return prevProps === nextProps
+}
+
 const Myposts = (props) => {
+
+    console.log('RENDER')
 
     let postsElement = props.profilePage.posts.map(
         p => <Post post={p.post} countslike={p.countslike} key={p.id} />
@@ -12,6 +20,7 @@ const Myposts = (props) => {
 
 
     return (
+
         <div className={style.content}>
             <MyPostsForm addPost={props.addPost} />
             <div><button>
@@ -21,9 +30,8 @@ const Myposts = (props) => {
                 {postsElement}
             </div>
 
-
         </div >
     )
 }
 
-export default Myposts;
+export default React.memo(Myposts, areEqual);
