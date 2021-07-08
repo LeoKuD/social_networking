@@ -4,16 +4,16 @@ import { LoginForm } from './LoginForm'
 import { login } from '../../Redux/State/Auth-Reducer'
 import { Redirect } from 'react-router';
 
-const Login = (props) => {
+const Login = ({ isAuth, error, login }) => {
 
 
-    if (props.isAuth) {
+    if (isAuth) {
         return <Redirect to='/profile' />
     }
 
     return <div>
         <h1>Login</h1>
-        <LoginForm error={props.error} login={props.login} />
+        <LoginForm error={error} login={login} />
     </div>
 }
 

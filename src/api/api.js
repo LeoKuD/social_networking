@@ -34,16 +34,6 @@ export const authAPI = {
     },
 }
 
-
-// export const security = {
-//     getCaptcha() {
-//         return instance.get('security/get-captcha-url').then(response => {
-//             debugger
-//             return response.data
-//         })
-//     }
-// }
-
 export const followAPI = {
     getFollow(id) {
         return instance.post(`follow/` + id).then(response => {

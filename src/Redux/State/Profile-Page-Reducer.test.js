@@ -24,6 +24,13 @@ describe('after deleting length of messaegs should be decrement', () => {
         expect(newState.posts.length).toBe(2)
     })
 })
+describe(`after deleting length shouldn't be decrement if id is incorrect`, () => {
+    test('id is incorrect', () => {
+        let action = deletedPost(1000)
+        let newState = profileReducer(state, action)
+        expect(newState.posts.length).toBe(3)
+    })
+})
 describe('add a new post with the correct name', () => {
     test('new post', () => {
         let action = addPostActionCreator('new post name')
@@ -32,4 +39,5 @@ describe('add a new post with the correct name', () => {
         expect(newState.posts[len].post).toBe('new post name')
     })
 })
+
 
