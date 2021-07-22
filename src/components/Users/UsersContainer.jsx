@@ -4,7 +4,7 @@ import { follow, unFollow, requestUsers } from '../../Redux/State/Users-Page-Red
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader'
 import { compose } from 'redux'
-import { getCurrentPage, getFollowingInProggress, getIsFeatching, getPageSize, getTotalUsersCount, getUsers } from '../../Redux/State/users-Selectors'
+import { getCurrentPage, getFollowingInProggress, getIsFeatching, getPageSize, getTotalUsersCount, getUsers, getPortionSize } from '../../Redux/State/users-Selectors'
 
 class UsersContainer extends React.Component {
 
@@ -31,6 +31,7 @@ class UsersContainer extends React.Component {
                 follow={this.props.follow}
                 unFollow={this.props.unFollow}
                 followingInProggress={this.props.followingInProggress}
+                portionSize = {this.props.portionSize}
 
             />
         </>
@@ -45,7 +46,8 @@ let mapStateToProps = (state) => {
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFeatching: getIsFeatching(state),
-        followingInProggress: getFollowingInProggress(state)
+        followingInProggress: getFollowingInProggress(state),
+        portionSize: getPortionSize(state)
 
     }
 }

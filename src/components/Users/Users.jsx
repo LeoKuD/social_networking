@@ -5,13 +5,14 @@ import style from './Users.module.css'
 import { Paginator } from '../../utilits/Paginator/Paginator'
 import { User } from './User'
 
-let Users = ({ totalUsersCount, pageSize, currentPage, onPageChanged, ...props }) => {
+let Users = ({ totalUsersCount, pageSize, currentPage, onPageChanged, portionSize, ...props }) => {
     return <div>
 
-        <Paginator totalUsersCount={totalUsersCount}
+        <Paginator totalItemsCount={totalUsersCount}
             pageSize={pageSize}
             currentPage={currentPage}
             onPageChanged={onPageChanged}
+            portionSize={portionSize}
         />
 
         {props.users.map(u => <User user={u}

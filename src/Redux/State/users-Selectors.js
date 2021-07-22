@@ -32,3 +32,6 @@ export const getIsFeatching = (state) => {
 export const getFollowingInProggress = (state) => {
     return state.usersPage.followingInProggress
 }
+export const getPortionSize = (state) => {
+    return state.usersPage.portionSize
+}
