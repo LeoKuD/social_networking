@@ -1,3 +1,15 @@
 .selectedPage {
     font-weight: bold;
 }
+.spanPage:hover{
+    font-weight: bold;
+    color: brown;
+    cursor: pointer;
+}
+.spanPage{
+    border: solid;
+    margin-right: 2px;
+    margin-left: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
