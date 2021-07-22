@@ -1,7 +1,7 @@
 import style from './Paginator.module.css'
 
 export const Paginator = ({ totalUsersCount, pageSize, currentPage, onPageChanged }) => {
-    let pagesCount = Math.ceil((totalUsersCount / 50) / pageSize)
+    let pagesCount = Math.ceil((totalUsersCount / 60) / pageSize)
     let pages = []
 
     for (let i = 1; i <= pagesCount; i++) {
